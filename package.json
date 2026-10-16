@@ -1,12 +1,13 @@
 {
   "name": "kivlib",
-  "version": "1.0.0",
-  "description": "Kivaywa High School Library Management System (LMS) - Backend Integration Engine & REST API built with Node.js, Express.js, and MongoDB Atlas.",
+  "version": "2.1.0",
+  "description": "Kivaywa High School Library Management System (LMS) - Backend Integration Engine & REST API built with Node.js, Express.js, and MongoDB Atlas. Includes barcode scanner (phone-as-OBR) support.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
     "start:prod": "NODE_ENV=production node server.js",
+    "health": "curl -s http://localhost:5000/api/health | node -e \"process.stdin.on('data',d=>console.log(JSON.parse(d)))\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,7 +22,15 @@
     "mongodb",
     "mongoose",
     "rest-api",
-    "nodejs"
+    "nodejs",
+    "barcode",
+    "barcode-scanner",
+    "isbn",
+    "zxing",
+    "obr",
+    "optical-barcode-reader",
+    "school-library",
+    "kenya"
   ],
   "author": "Griff254-ken",
   "license": "ISC",
