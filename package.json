@@ -1,31 +1,46 @@
 {
   "name": "kivlib",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "Kivaywa High School Library Management System (LMS) - Backend Integration Engine & REST API built with Node.js, Express.js, and MongoDB Atlas.",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "start:prod": "NODE_ENV=production node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Griff254-ken/KivLib.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "kivaywa",
+    "library",
+    "lms",
+    "express",
+    "mongodb",
+    "mongoose",
+    "rest-api",
+    "nodejs"
+  ],
+  "author": "Griff254-ken",
   "license": "ISC",
   "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "bugs": {
     "url": "https://github.com/Griff254-ken/KivLib/issues"
   },
   "homepage": "https://github.com/Griff254-ken/KivLib#readme",
   "dependencies": {
-    "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1",
-    "mongoose": "^9.7.0"
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.4"
   }
 }
