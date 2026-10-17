@@ -538,7 +538,7 @@ body {
 }
 
 /* ============================================================
-   PRINT REPORT STYLES (for the opened window)
+   PRINT REPORT STYLES — WITH FULL GRID LINES & BORDERS
    ============================================================ */
 
 .print-doc {
@@ -568,6 +568,7 @@ body {
   font-size: 26px;
   color: #1a1410;
   flex-shrink: 0;
+  border: 2px solid #a8873a;
 }
 
 .print-doc .report-letterhead .title-block {
@@ -635,7 +636,7 @@ body {
 }
 
 .print-doc .summary-card {
-  border: 1px solid #e5dfd8;
+  border: 1.5px solid #7a1e2e;
   border-radius: 8px;
   padding: 12px 14px;
   background: #fcf9f6;
@@ -683,6 +684,7 @@ body {
   padding: 8px 12px;
   background: linear-gradient(135deg, #7a1e2e, #4f1320);
   color: #fff;
+  border: 1.5px solid #4f1320;
   border-radius: 6px 6px 0 0;
   page-break-after: avoid;
 }
@@ -703,43 +705,52 @@ body {
   font-weight: 600;
 }
 
-/* Report tables */
+/* ============================================================
+   REPORT TABLE — FULL GRID LINES & BORDERS
+   ============================================================ */
+
 .print-doc table.report-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 9.5pt;
-  border: 1px solid #e5dfd8;
+  border: 1.5px solid #7a1e2e;
   border-top: none;
+  table-layout: auto;
 }
 
 .print-doc table.report-table thead th {
-  background: #f0ebe4;
-  color: #5b534b;
+  background: #7a1e2e;
+  color: #ffffff;
   font-size: 8pt;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   padding: 8px 10px;
   text-align: left;
-  border-bottom: 1px solid #e5dfd8;
-  border-right: 1px solid #e5dfd8;
+  border: 1px solid #4f1320;
+  border-top: 1.5px solid #4f1320;
+  border-bottom: 1.5px solid #4f1320;
 }
 
-.print-doc table.report-table thead th:last-child { border-right: none; }
+.print-doc table.report-table thead th:first-child { border-left: 1.5px solid #4f1320; }
+.print-doc table.report-table thead th:last-child { border-right: 1.5px solid #4f1320; }
 
 .print-doc table.report-table tbody td {
   padding: 7px 10px;
-  border-bottom: 1px solid #f0ebe4;
-  border-right: 1px solid #f0ebe4;
+  border: 1px solid #c9b8a8;
   vertical-align: middle;
+  color: #1e1a17;
 }
 
-.print-doc table.report-table tbody td:last-child { border-right: none; }
+.print-doc table.report-table tbody td:first-child { border-left: 1.5px solid #7a1e2e; }
+.print-doc table.report-table tbody td:last-child { border-right: 1.5px solid #7a1e2e; }
 
-.print-doc table.report-table tbody tr:last-child td { border-bottom: 1px solid #e5dfd8; }
+.print-doc table.report-table tbody tr:last-child td {
+  border-bottom: 1.5px solid #7a1e2e;
+}
 
 .print-doc table.report-table tbody tr:nth-child(even) td {
-  background: #fcf9f6;
+  background: #f7f1ea;
 }
 
 .print-doc .cell-code {
@@ -785,7 +796,7 @@ body {
   text-align: center;
   color: #5b534b;
   font-style: italic;
-  border: 1px solid #e5dfd8;
+  border: 1.5px solid #7a1e2e;
   border-top: none;
   background: #fcf9f6;
 }
@@ -841,7 +852,7 @@ body {
 }
 
 .print-actions .left i {
-  color: tomato;
+  color: #e8d194;
   font-size: 16px;
 }
 
@@ -876,7 +887,7 @@ body {
 @media print {
   @page {
     size: A4;
-    margin: 14mm 12mm;
+    margin: 12mm 10mm;
   }
 
   .print-actions { display: none !important; }
@@ -891,6 +902,14 @@ body {
   .print-doc .section { page-break-inside: auto; }
   .print-doc table.report-table thead { display: table-header-group; }
   .print-doc table.report-table tr { page-break-inside: avoid; }
+
+  /* Ensure borders print on every page */
+  .print-doc table.report-table,
+  .print-doc table.report-table thead th,
+  .print-doc table.report-table tbody td {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
 
   .print-doc .report-letterhead { page-break-after: avoid; }
   .print-doc .section-header { page-break-after: avoid; }
@@ -1103,7 +1122,7 @@ body {
             </div>
             <div class="page-actions">
                 <button class="btn btn-print" onclick="printReport('books')">
-                    <i class="fa-solid fa-print"></i> Genarate List
+                    <i class="fa-solid fa-print"></i> Generate List
                 </button>
                 <button class="btn btn-ghost" onclick="startScan('book-search')">
                     <i class="fa-solid fa-barcode"></i> Scan to Find
@@ -1146,7 +1165,7 @@ body {
             </div>
             <div class="page-actions">
                 <button class="btn btn-print" onclick="printReport('registry')">
-                    <i class="fa-solid fa-print"></i> Genarate List
+                    <i class="fa-solid fa-print"></i> Generate List
                 </button>
                 <button class="btn btn-ghost" onclick="openModal('return-book-modal')">
                     <i class="fa-solid fa-arrow-rotate-left"></i> Return Book
@@ -1193,7 +1212,7 @@ body {
             </div>
             <div class="page-actions">
                 <button class="btn btn-print" onclick="printReport('fines')">
-                    <i class="fa-solid fa-print"></i> Genarate Fine List
+                    <i class="fa-solid fa-print"></i> Generate Fine List
                 </button>
                 <div class="fines-summary" id="fines-summary"></div>
             </div>
@@ -1534,9 +1553,9 @@ body {
 <script>
 /* =========================================================
    KIVAYWA HIGH SCHOOL — LIBRARY MANAGEMENT SYSTEM
-   Frontend Application Engine (v2.3)
+   Frontend Application Engine (v2.4)
    Backend: https://kivlibback.onrender.com/api
-   Barcode Scanner + Printable Report
+   Barcode Scanner + Printable Report with Grid Borders
    ========================================================= */
 
 'use strict';
@@ -2443,7 +2462,7 @@ function buildFooter() {
         <div class="report-footer">
             <div>
                 <div><strong>Report generated:</strong> ${stampNow()}</div>
-                <div><strong>System:</strong> Kivaywa LMS v2.3</div>
+                <div><strong>System:</strong> Kivaywa LMS v2.4</div>
             </div>
             <div class="signature">
                 <div class="sig-line">Librarian Signature</div>
@@ -2511,7 +2530,6 @@ function printReport(mode = 'all') {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     `;
 
-    // Reuse the print-doc CSS from the main page
     const printStyles = Array.from(document.styleSheets)
         .filter(s => !s.href || s.href.includes('fonts.googleapis') || s.href.includes('font-awesome'))
         .map(s => {
@@ -2539,7 +2557,7 @@ function printReport(mode = 'all') {
                 }
                 .print-doc {
                     background: #fff;
-                    max-width: 820px;
+                    max-width: 900px;
                     margin: 24px auto;
                     padding: 32px 40px;
                     border-radius: 8px;
