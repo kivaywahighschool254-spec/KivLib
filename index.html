@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT182QjOZmHaUdd56SiVgSFx14YvNEuzOUS7A&s">
+    <title>Kivaywa Boys | Secure Entry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --maroon: #800000;
+            --green: #006400;
+            --black: #050505;
+            --white: #ffffff;
+            --accent-red: #ff3131;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--black);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            /* Subtle background gradient for depth */
+            background: radial-gradient(circle at center, #1a0000 0%, #050505 100%);
+        }
+
+        /* --- THE LOADING CORE --- */
+        #loader {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 100;
+        }
+
+        .badge-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        /* Animated Glowing Orbs */
+        .glow {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: var(--maroon);
+            filter: blur(60px);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: pulseGlow 4s infinite alternate;
+        }
+
+        /* Pulsing Rings (Kenyan Colors) */
+        .ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid var(--maroon);
+            width: 100%;
+            height: 100%;
+            animation: ripple 2.5s infinite cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .ring:nth-child(2) {
+            animation-delay: 0.8s;
+            border-color: var(--green);
+        }
+
+        .school-badge {
+            width: 150px;
+            height: 150px;
+            z-index: 10;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+            transition: transform 0.5s ease;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        .text-content {
+            margin-top: 20px;
+        }
+
+        .school-name {
+            color: var(--white);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+            opacity: 0.6;
+        }
+
+        .tagline {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        .tagline b {
+            color: var(--green);
+            font-weight: 800;
+            text-shadow: 0 0 15px rgba(0, 100, 0, 0.4);
+        }
+
+        /* --- MODERN PROGRESS SYSTEM --- */
+        .status-area {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .progress-wrapper {
+            width: 250px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--maroon), var(--accent-red), var(--green));
+            background-size: 200% 100%;
+            animation: moveGradient 2s linear infinite, fillUp 3s forwards cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .loading-text {
+            color: var(--white);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.5;
+        }
+
+        /* --- KEYFRAMES --- */
+        @keyframes ripple {
+            0% { transform: scale(0.7); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+
+        @keyframes pulseGlow {
+            from { transform: scale(1); opacity: 0.2; }
+            to { transform: scale(1.5); opacity: 0.4; }
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fillUp {
+            to { width: 100%; }
+        }
+
+        @keyframes moveGradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
+        /* Smooth Exit Animation */
+        .fade-out {
+            opacity: 0;
+            transform: scale(1.1);
+            filter: blur(10px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loader">
+        <div class="badge-container">
+            <div class="glow"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT182QjOZmHaUdd56SiVgSFx14YvNEuzOUS7A&s" alt="Kivaywa Badge" class="school-badge">
+        </div>
+
+        <div class="text-content">
+            <div class="school-name">Kivaywa Library Management System</div>
+            <div class="tagline">Knowledge is <b>Immortal</b></div>
+        </div>
+
+        <div class="status-area">
+            <div class="progress-wrapper">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="loading-text" id="statusLabel">Initializing Systems...Please wait</div>
+        </div>
+    </div>
+
+    <script>
+        const statusLabel = document.getElementById('statusLabel');
+        const loader = document.getElementById('loader');
+        
+        // Array of professional status messages
+        const messages = [
+            "Connecting to Kivaywa Cloud...",
+            "Verifying Credentials...",
+          "Reading Database...",
+            "Encrypting Session...",
+            "Welcome, Scholar."
+             ];
+
+        let msgIndex = 0;
+        const msgInterval = setInterval(() => {
+            if(msgIndex < messages.length) {
+                statusLabel.innerText = messages[msgIndex];
+                msgIndex++;
+            }
+        }, 800);
+
+        // Handle the transition
+        window.addEventListener('load', () => {
+            // Wait 3.5 seconds to let animations finish, then redirect
+            setTimeout(() => {
+                clearInterval(msgInterval);
+                loader.classList.add('fade-out');
+                
+                setTimeout(() => {
+                    window.location.href = 'dash.html';
+                }, 800);
+            }, 3500); 
+        });
+    </script>
+
+</body>
+</html>
