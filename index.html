@@ -21,7 +21,7 @@
 <style>
 /* ============================================================
    KIVAYWA HIGH SCHOOL · LIBRARY SYSTEM
-   Enterprise Stylesheet — Barcode + Excel + Mobile Enhanced
+   Enterprise Stylesheet — Barcode + Print Report + Mobile
    ============================================================ */
 
 :root {
@@ -81,7 +81,6 @@
   --max-width: 1440px;
   --content-spacing: 32px;
 
-  /* Safe area insets for iOS notch */
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
@@ -112,7 +111,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Prevent iOS auto-zoom on input focus */
 @supports (-webkit-touch-callout: none) {
   input, select, textarea { font-size: 16px !important; }
 }
@@ -184,7 +182,6 @@ body {
 .sidebar-school { font-size: 0.65rem; color: rgba(255,255,255,0.2); text-align: center; line-height: 1.6; }
 .sidebar-school .motto { display: block; font-style: italic; color: rgba(255,255,255,0.12); font-size: 0.6rem; letter-spacing: 0.06em; margin-top: 2px; }
 
-/* Backdrop for mobile sidebar */
 .sidebar-backdrop {
   display: none;
   position: fixed;
@@ -264,8 +261,8 @@ body {
 .btn-danger:hover { background: #991b1b; transform: translateY(-1px); }
 .btn-success { background: var(--clr-success); color: #fff; box-shadow: 0 2px 8px rgba(11, 126, 75, 0.2); }
 .btn-success:hover { background: #09693f; transform: translateY(-1px); }
-.btn-excel { background: linear-gradient(135deg, #0f7b3f, #146c43); color: #fff; box-shadow: 0 2px 8px rgba(15, 123, 63, 0.25); }
-.btn-excel:hover { background: linear-gradient(135deg, #0d6a36, #0f5a38); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(15, 123, 63, 0.3); }
+.btn-print { background: linear-gradient(135deg, #1e4e8c, #2c6cb5); color: #fff; box-shadow: 0 2px 8px rgba(30, 78, 140, 0.25); }
+.btn-print:hover { background: linear-gradient(135deg, #17406f, #1e4e8c); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(30, 78, 140, 0.3); }
 .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
 
 /* ---------- Metrics ---------- */
@@ -313,7 +310,6 @@ body {
 .data-table tbody tr:hover td { background: var(--clr-surface-soft); }
 .data-table .table-loading { text-align: center; color: var(--clr-text-muted); padding: 36px 0; font-style: italic; }
 
-/* Badges */
 .badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: var(--radius-full); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
 .badge-active { background: var(--clr-success-bg); color: var(--clr-success); }
 .badge-overdue { background: var(--clr-danger-bg); color: var(--clr-danger); }
@@ -321,7 +317,6 @@ body {
 .badge-student { background: var(--clr-info-bg); color: var(--clr-info); }
 .badge-teacher { background: #ede9fe; color: #6d28d9; }
 
-/* ---------- Popular ---------- */
 .popular-list { list-style: none; margin: 0; padding: 0; }
 .popular-list li { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--clr-border-light); font-size: 0.88rem; transition: padding var(--duration-fast); gap: 8px; }
 .popular-list li:last-child { border-bottom: none; }
@@ -331,21 +326,18 @@ body {
 .popular-list .popular-count { font-size: 0.75rem; color: var(--clr-text-muted); background: var(--clr-surface-soft); padding: 2px 12px; border-radius: var(--radius-full); font-weight: 600; flex-shrink: 0; }
 .popular-empty { color: var(--clr-text-muted); font-style: italic; text-align: center; padding: 20px 0; }
 
-/* ---------- Search ---------- */
 .search-box { display: flex; align-items: center; gap: 10px; background: var(--clr-surface-soft); border: 1px solid var(--clr-border-light); border-radius: var(--radius-full); padding: 0 16px; transition: all var(--duration) var(--ease); flex: 1; min-width: 200px; }
 .search-box:focus-within { border-color: var(--clr-maroon); box-shadow: 0 0 0 3px rgba(var(--clr-maroon-rgb), 0.08); background: var(--clr-surface); }
 .search-box i { color: var(--clr-text-muted); font-size: 0.85rem; }
 .search-box input { border: none; background: transparent; padding: 12px 0; font-family: var(--font-body); font-size: 0.9rem; width: 100%; color: var(--clr-text); outline: none; min-height: 44px; }
 .search-box input::placeholder { color: var(--clr-text-muted); opacity: 0.6; }
 
-/* ---------- Chips ---------- */
 .filter-chips { display: flex; gap: 6px; flex-wrap: wrap; }
 .chip { padding: 8px 16px; border: 1px solid var(--clr-border); border-radius: var(--radius-full); background: transparent; font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; color: var(--clr-text-muted); cursor: pointer; transition: all var(--duration) var(--ease); min-height: 36px; display: inline-flex; align-items: center; }
 .chip:hover { background: var(--clr-border-light); color: var(--clr-text); }
 .chip.active { background: var(--clr-maroon); color: #fff; border-color: var(--clr-maroon); }
 .chip.active:hover { background: var(--clr-maroon-light); }
 
-/* ---------- Modals ---------- */
 .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: all 0.3s var(--ease-smooth); padding-top: calc(20px + var(--safe-top)); padding-bottom: calc(20px + var(--safe-bottom)); }
 .modal-backdrop.open { opacity: 1; visibility: visible; }
 .modal { background: var(--clr-surface); border-radius: var(--radius-lg); max-width: 600px; width: 100%; max-height: 90vh; max-height: 90dvh; overflow-y: auto; box-shadow: var(--shadow-2xl); transform: scale(0.95) translateY(20px); transition: transform 0.3s var(--ease-smooth); }
@@ -360,7 +352,6 @@ body {
 .modal-body { padding: 24px 28px; }
 .modal-foot { padding: 16px 28px 24px; border-top: 1px solid var(--clr-border-light); display: flex; justify-content: flex-end; gap: 12px; flex-wrap: wrap; position: sticky; bottom: 0; background: var(--clr-surface); }
 
-/* ---------- Forms ---------- */
 .form-field { margin-bottom: 18px; }
 .form-field label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--clr-text); margin-bottom: 6px; }
 .form-field label .required { color: var(--clr-danger); margin-left: 2px; }
@@ -375,7 +366,6 @@ body {
 .loan-preview-row .lp-label { color: var(--clr-text-muted); font-weight: 500; flex-shrink: 0; }
 .loan-preview-row .lp-value { font-weight: 500; text-align: right; word-break: break-word; }
 
-/* ---------- Toast ---------- */
 #toast-stack { position: fixed; bottom: calc(24px + var(--safe-bottom)); right: 24px; display: flex; flex-direction: column; gap: 10px; z-index: 3000; max-width: 380px; width: calc(100% - 48px); pointer-events: none; }
 .toast { background: var(--clr-surface); padding: 14px 20px; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); border-left: 4px solid var(--clr-maroon); display: flex; align-items: center; gap: 12px; animation: slideIn 0.3s var(--ease-smooth); font-size: 0.85rem; pointer-events: auto; transition: all var(--duration) var(--ease); }
 .toast:hover { transform: translateX(-4px); }
@@ -394,14 +384,10 @@ body {
 @keyframes slideIn { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes toastOut { to { opacity: 0; transform: translateX(40px); } }
 
-/* ---------- Fines ---------- */
 .fines-summary { display: flex; align-items: center; gap: 12px; background: var(--clr-surface-soft); padding: 8px 18px; border-radius: var(--radius-full); border: 1px solid var(--clr-border-light); font-size: 0.85rem; font-weight: 500; }
 .fines-summary .total { color: var(--clr-danger); font-weight: 700; }
 
-/* ============================================================
-   BARCODE SCANNER ADDITIONS
-   ============================================================ */
-
+/* ---------- Barcode scanner ---------- */
 .input-with-scan { display: flex; gap: 8px; align-items: stretch; }
 .input-with-scan input { flex: 1; min-width: 0; }
 
@@ -436,48 +422,31 @@ body {
   padding: calc(20px + var(--safe-top)) 20px calc(20px + var(--safe-bottom));
 }
 .scanner-overlay[hidden] { display: none; }
-
 .scanner-frame { position: relative; width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 14px; }
-
 .scanner-viewport { position: relative; width: 100%; aspect-ratio: 4/3; background: #111; border-radius: var(--radius-lg); overflow: hidden; }
-
 #scanner-video { width: 100%; height: 100%; object-fit: cover; display: block; }
-
 .scanner-reticle { position: absolute; top: 25%; left: 8%; right: 8%; bottom: 25%; pointer-events: none; }
 .scanner-reticle .corner { position: absolute; width: 28px; height: 28px; border-color: var(--clr-gold); border-style: solid; border-width: 0; }
 .scanner-reticle .corner.tl { top: 0; left: 0; border-top-width: 3px; border-left-width: 3px; border-top-left-radius: 8px; }
 .scanner-reticle .corner.tr { top: 0; right: 0; border-top-width: 3px; border-right-width: 3px; border-top-right-radius: 8px; }
 .scanner-reticle .corner.bl { bottom: 0; left: 0; border-bottom-width: 3px; border-left-width: 3px; border-bottom-left-radius: 8px; }
 .scanner-reticle .corner.br { bottom: 0; right: 0; border-bottom-width: 3px; border-right-width: 3px; border-bottom-right-radius: 8px; }
-
 .scan-line { position: absolute; left: 6%; right: 6%; height: 2px; background: linear-gradient(90deg, transparent, var(--clr-gold), transparent); box-shadow: 0 0 12px var(--clr-gold); animation: scanSweep 2.4s ease-in-out infinite; }
 @keyframes scanSweep { 0%, 100% { top: 4%; opacity: 0; } 10%, 90% { opacity: 1; } 50% { top: 96%; } }
-
 .scanner-cancel { align-self: flex-end; background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.2); padding: 10px 18px; border-radius: var(--radius-full); cursor: pointer; font-family: inherit; font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; min-height: 42px; }
 .scanner-cancel:hover { background: rgba(255,255,255,.2); }
-
 .scanner-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
-
 .scanner-hint { color: #fff; font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.08); padding: 12px 18px; border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,.12); flex: 1; min-width: 0; }
 .scanner-hint i { color: var(--clr-gold); flex-shrink: 0; }
-
 .scanner-target { color: rgba(255,255,255,.55); font-size: 0.7rem; text-align: center; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
 
 /* ============================================================
-   RESPONSIVE — TABLETS & PHONES
+   RESPONSIVE
    ============================================================ */
 
-/* Tablet landscape */
-@media (max-width: 1024px) {
-  .analytics-row { grid-template-columns: 1fr; }
-}
+@media (max-width: 1024px) { .analytics-row { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { :root { --content-spacing: 20px; } }
 
-/* Tablet portrait */
-@media (max-width: 900px) {
-  :root { --content-spacing: 20px; }
-}
-
-/* Small tablet / large phone */
 @media (max-width: 820px) {
   .sidebar { transform: translateX(-100%); }
   .sidebar.open { transform: translateX(0); box-shadow: 4px 0 40px rgba(0,0,0,0.4); }
@@ -503,72 +472,55 @@ body {
   .fines-summary { align-self: flex-start; }
 }
 
-/* Phones */
 @media (max-width: 480px) {
   :root { --content-spacing: 14px; }
   body { font-size: 15px; }
-
   .topbar { padding: 12px 0 14px; padding-top: calc(12px + var(--safe-top)); margin-bottom: 18px; min-height: auto; }
   .topbar-breadcrumb { font-size: 0.8rem; }
   .page-title { font-size: 1.35rem; }
   .page-subtitle { font-size: 0.85rem; }
-
   .metrics-grid { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 22px; }
   .metric-card { padding: 14px 12px; border-radius: var(--radius-md); }
   .metric-card .mc-value { font-size: 1.5rem; }
   .metric-card .mc-label { font-size: 0.65rem; letter-spacing: 0.04em; }
   .metric-card .mc-sub { font-size: 0.68rem; }
   .metric-card .mc-icon { font-size: 1.3rem; margin-left: 6px; }
-
   .topbar-profile .profile-details { display: none; }
   .profile-avatar { width: 38px; height: 38px; font-size: 0.9rem; }
-
   .glass-card { padding: 16px 14px 18px; border-radius: var(--radius-md); margin-bottom: 18px; }
   .glass-card-title { font-size: 1.05rem; }
-
   .data-table { font-size: 0.78rem; min-width: 560px; }
   .data-table thead th { padding: 8px 10px; font-size: 0.65rem; }
   .data-table tbody td { padding: 10px 10px; }
-
   .btn { font-size: 0.78rem; padding: 8px 14px; min-height: 40px; }
   .btn-sm { font-size: 0.72rem; padding: 6px 10px; min-height: 36px; }
-
   .modal-body { padding: 18px 16px; }
   .modal-head { padding: 16px; }
   .modal-foot { padding: 14px 16px; }
   .modal-title-wrap h2 { font-size: 1.1rem; }
   .modal-icon-badge { width: 38px; height: 38px; font-size: 1rem; }
-
   .form-field input, .form-field select { font-size: 1rem; min-height: 48px; padding: 12px 14px; }
   .form-field label { font-size: 0.78rem; }
-
   .btn-scan { min-width: 52px; min-height: 48px; font-size: 1.1rem; }
-
   .chip { font-size: 0.72rem; padding: 7px 14px; min-height: 34px; }
-
   .search-box input { font-size: 1rem; padding: 12px 0; }
-
   #toast-stack { bottom: calc(12px + var(--safe-bottom)); right: 12px; left: 12px; max-width: none; width: auto; }
   .toast { padding: 12px 16px; font-size: 0.82rem; }
-
   .scanner-frame { gap: 12px; }
   .scanner-hint { font-size: 0.78rem; padding: 10px 14px; }
   .scanner-target { font-size: 0.65rem; }
   .scanner-cancel { padding: 8px 14px; font-size: 0.78rem; min-height: 38px; }
   .scanner-reticle .corner { width: 22px; height: 22px; }
-
   .analytics-row { gap: 16px; }
   .chart-wrap { min-height: 200px; }
 }
 
-/* Extra small phones */
 @media (max-width: 360px) {
   .metrics-grid { grid-template-columns: 1fr; }
   .page-actions .btn { width: 100%; }
   .page-actions { flex-direction: column; align-items: stretch; }
 }
 
-/* Landscape phone — scanner overlay special */
 @media (max-height: 500px) and (orientation: landscape) {
   .scanner-overlay { padding: 12px; }
   .scanner-frame { max-width: 90vh; }
@@ -576,14 +528,6 @@ body {
   .scanner-footer { flex-direction: row; }
 }
 
-/* Print */
-@media print {
-  .sidebar, .topbar, .page-actions, .header-actions, #toast-stack, .scanner-overlay { display: none !important; }
-  .main { margin-left: 0 !important; padding: 20px !important; }
-  .glass-card, .metric-card { box-shadow: none !important; border: 1px solid #ddd !important; }
-}
-
-/* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -592,14 +536,372 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================
+   PRINT REPORT STYLES (for the opened window)
+   ============================================================ */
+
+.print-doc {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1e1a17;
+  line-height: 1.5;
+  font-size: 11pt;
+}
+
+.print-doc .report-letterhead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 14px;
+  border-bottom: 3px double #7a1e2e;
+  margin-bottom: 18px;
+}
+
+.print-doc .report-letterhead .crest {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c9a84c, #a8873a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #1a1410;
+  flex-shrink: 0;
+}
+
+.print-doc .report-letterhead .title-block {
+  flex: 1;
+  min-width: 0;
+}
+
+.print-doc .report-letterhead h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22pt;
+  font-weight: 700;
+  color: #7a1e2e;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.print-doc .report-letterhead .sub {
+  font-size: 9pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5b534b;
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+.print-doc .report-letterhead .motto {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 9.5pt;
+  color: #a8873a;
+  margin-top: 4px;
+}
+
+.print-doc .report-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15pt;
+  font-weight: 700;
+  color: #1e1a17;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 14px 0 4px;
+}
+
+.print-doc .report-meta {
+  text-align: center;
+  font-size: 9pt;
+  color: #5b534b;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5dfd8;
+}
+
+.print-doc .report-meta strong {
+  color: #1e1a17;
+}
+
+/* Summary cards on print */
+.print-doc .summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.print-doc .summary-card {
+  border: 1px solid #e5dfd8;
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: #fcf9f6;
+  page-break-inside: avoid;
+}
+
+.print-doc .summary-card .label {
+  font-size: 8pt;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #5b534b;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.print-doc .summary-card .value {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18pt;
+  font-weight: 700;
+  line-height: 1;
+  color: #1e1a17;
+}
+
+.print-doc .summary-card.maroon .value { color: #7a1e2e; }
+.print-doc .summary-card.blue   .value { color: #1e4e8c; }
+.print-doc .summary-card.amber  .value { color: #b45309; }
+.print-doc .summary-card.red    .value { color: #b91c1c; }
+
+.print-doc .summary-card .sub {
+  font-size: 8pt;
+  color: #5b534b;
+  margin-top: 3px;
+}
+
+/* Section headers */
+.print-doc .section {
+  margin-bottom: 22px;
+  page-break-inside: auto;
+}
+
+.print-doc .section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #7a1e2e, #4f1320);
+  color: #fff;
+  border-radius: 6px 6px 0 0;
+  page-break-after: avoid;
+}
+
+.print-doc .section-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 12pt;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.print-doc .section-header .count {
+  font-size: 8.5pt;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #e8d194;
+  font-weight: 600;
+}
+
+/* Report tables */
+.print-doc table.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.5pt;
+  border: 1px solid #e5dfd8;
+  border-top: none;
+}
+
+.print-doc table.report-table thead th {
+  background: #f0ebe4;
+  color: #5b534b;
+  font-size: 8pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid #e5dfd8;
+  border-right: 1px solid #e5dfd8;
+}
+
+.print-doc table.report-table thead th:last-child { border-right: none; }
+
+.print-doc table.report-table tbody td {
+  padding: 7px 10px;
+  border-bottom: 1px solid #f0ebe4;
+  border-right: 1px solid #f0ebe4;
+  vertical-align: middle;
+}
+
+.print-doc table.report-table tbody td:last-child { border-right: none; }
+
+.print-doc table.report-table tbody tr:last-child td { border-bottom: 1px solid #e5dfd8; }
+
+.print-doc table.report-table tbody tr:nth-child(even) td {
+  background: #fcf9f6;
+}
+
+.print-doc .cell-code {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 9pt;
+  color: #1e1a17;
+}
+
+.print-doc .cell-num {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  text-align: right;
+  font-weight: 600;
+}
+
+.print-doc .cell-money {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  text-align: right;
+  font-weight: 700;
+  color: #b91c1c;
+}
+
+.print-doc .badge-print {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 7.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 1px solid;
+}
+
+.print-doc .badge-print.active  { background: #e5f5ed; color: #0b7e4b; border-color: #0b7e4b; }
+.print-doc .badge-print.overdue { background: #fde8e8; color: #b91c1c; border-color: #b91c1c; }
+.print-doc .badge-print.student { background: #e4eef9; color: #1e4e8c; border-color: #1e4e8c; }
+.print-doc .badge-print.teacher { background: #ede9fe; color: #6d28d9; border-color: #6d28d9; }
+.print-doc .badge-print.good    { background: #e5f5ed; color: #0b7e4b; border-color: #0b7e4b; }
+.print-doc .badge-print.bad     { background: #fde8e8; color: #b91c1c; border-color: #b91c1c; }
+
+/* Empty state on print */
+.print-doc .empty-state {
+  padding: 20px;
+  text-align: center;
+  color: #5b534b;
+  font-style: italic;
+  border: 1px solid #e5dfd8;
+  border-top: none;
+  background: #fcf9f6;
+}
+
+/* Footer */
+.print-doc .report-footer {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid #e5dfd8;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: #5b534b;
+}
+
+.print-doc .report-footer .signature {
+  margin-top: 20px;
+  display: flex;
+  gap: 40px;
+}
+
+.print-doc .report-footer .sig-line {
+  border-top: 1px solid #1e1a17;
+  padding-top: 4px;
+  min-width: 200px;
+  text-align: center;
+  font-size: 8pt;
+  color: #5b534b;
+}
+
+/* Print action bar (hidden when actually printing) */
+.print-actions {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #7a1e2e;
+  padding: 12px 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.print-actions .left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.print-actions .left i {
+  color: #e8d194;
+  font-size: 16px;
+}
+
+.print-actions button {
+  border: none;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  min-height: 38px;
+}
+
+.print-actions .btn-do-print {
+  background: #c9a84c;
+  color: #1a1410;
+}
+.print-actions .btn-do-print:hover { background: #e8d194; transform: translateY(-1px); }
+
+.print-actions .btn-close-print {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.print-actions .btn-close-print:hover { background: rgba(255,255,255,0.25); }
+
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 12mm;
+  }
+
+  .print-actions { display: none !important; }
+
+  body { background: #fff !important; }
+
+  .print-doc {
+    padding: 0;
+    font-size: 10pt;
+  }
+
+  .print-doc .section { page-break-inside: auto; }
+  .print-doc table.report-table thead { display: table-header-group; }
+  .print-doc table.report-table tr { page-break-inside: avoid; }
+
+  .print-doc .report-letterhead { page-break-after: avoid; }
+  .print-doc .section-header { page-break-after: avoid; }
+  .print-doc .report-footer { page-break-inside: avoid; }
+}
 </style>
 </head>
 <body>
 
-<!-- Backdrop for mobile sidebar -->
 <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="toggleSidebar(false)"></div>
 
-<!-- ==================== SIDEBAR ==================== -->
 <aside class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
     <div class="sidebar-brand">
         <div class="brand-logo" aria-hidden="true"><i class="fa-solid fa-book-open-reader"></i></div>
@@ -649,7 +951,6 @@ body {
     </div>
 </aside>
 
-<!-- ==================== MAIN ==================== -->
 <main class="main" id="main">
 
     <header class="topbar" role="banner">
@@ -685,8 +986,8 @@ body {
                 <p class="page-subtitle">Here's what's happening in your library today.</p>
             </div>
             <div class="page-actions">
-                <button class="btn btn-excel btn-sm" id="export-db-btn" aria-label="Export Excel report">
-                    <i class="fa-solid fa-file-excel" aria-hidden="true"></i> Export Excel
+                <button class="btn btn-print btn-sm" id="export-db-btn" aria-label="Print report">
+                    <i class="fa-solid fa-print" aria-hidden="true"></i> Print Report
                 </button>
                 <button class="btn btn-ghost btn-sm" id="import-db-btn" aria-label="Restore backup">
                     <i class="fa-solid fa-upload" aria-hidden="true"></i> Restore
@@ -801,8 +1102,8 @@ body {
                 <p class="page-subtitle">Manage your library's entire inventory.</p>
             </div>
             <div class="page-actions">
-                <button class="btn btn-excel" onclick="exportBooksOnly()">
-                    <i class="fa-solid fa-file-excel"></i> Export Excel
+                <button class="btn btn-print" onclick="printReport('books')">
+                    <i class="fa-solid fa-print"></i> Print Catalog
                 </button>
                 <button class="btn btn-ghost" onclick="startScan('book-search')">
                     <i class="fa-solid fa-barcode"></i> Scan to Find
@@ -844,8 +1145,8 @@ body {
                 <p class="page-subtitle">Track all active loans and check-outs.</p>
             </div>
             <div class="page-actions">
-                <button class="btn btn-excel" onclick="exportRegistryOnly()">
-                    <i class="fa-solid fa-file-excel"></i> Export Excel
+                <button class="btn btn-print" onclick="printReport('registry')">
+                    <i class="fa-solid fa-print"></i> Print Registry
                 </button>
                 <button class="btn btn-ghost" onclick="openModal('return-book-modal')">
                     <i class="fa-solid fa-arrow-rotate-left"></i> Return Book
@@ -891,8 +1192,8 @@ body {
                 <p class="page-subtitle">Manage overdue charges and condition penalties.</p>
             </div>
             <div class="page-actions">
-                <button class="btn btn-excel" onclick="exportFinesOnly()">
-                    <i class="fa-solid fa-file-excel"></i> Export Excel
+                <button class="btn btn-print" onclick="printReport('fines')">
+                    <i class="fa-solid fa-print"></i> Print Fines
                 </button>
                 <div class="fines-summary" id="fines-summary"></div>
             </div>
@@ -1225,35 +1526,29 @@ body {
     </div>
 </div>
 
-<!-- ==================== HELPERS ==================== -->
 <datalist id="inventory-datalist"></datalist>
 <div id="toast-stack" role="status" aria-live="polite"></div>
 
-<!-- ==================== SCRIPTS ==================== -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@zxing/library@0.20.0/umd/index.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script>
 /* =========================================================
    KIVAYWA HIGH SCHOOL — LIBRARY MANAGEMENT SYSTEM
-   Frontend Application Engine (v2.2)
+   Frontend Application Engine (v2.3)
    Backend: https://kivlibback.onrender.com/api
-   Excel Export + Barcode Scanner (phone-as-OBR)
+   Barcode Scanner + Printable Report
    ========================================================= */
 
 'use strict';
 
-// ── CONFIG ────────────────────────────────────────────────────────────────
 const API = 'https://kivlibback.onrender.com/api';
 const SCHOOL_NAME = 'KIVAYWA HIGH SCHOOL';
 const SCHOOL_MOTTO = 'Knowledge Is Immortal';
 
-// ── STATE ─────────────────────────────────────────────────────────────────
 let state = { books: [], borrowed: [], fines: [] };
 let borrowingChart = null;
 let registryFilter = 'all';
 
-// ── BOOT ──────────────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
     bootUI();
     syncData();
@@ -1271,7 +1566,6 @@ function bootUI() {
     initRegistryFilters();
 }
 
-// ── TIME & DATE ───────────────────────────────────────────────────────────
 function setGreeting() {
     const h = new Date().getHours();
     const el = document.getElementById('greeting-time');
@@ -1287,7 +1581,6 @@ function setDateDisplay() {
     });
 }
 
-// ── TAB NAVIGATION ───────────────────────────────────────────────────────
 function initTabs() {
     document.querySelectorAll('.nav-item').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1313,7 +1606,6 @@ function switchTab(tabId) {
     }
 }
 
-// ── SIDEBAR TOGGLE ────────────────────────────────────────────────────────
 function initSidebarToggle() {
     const toggle = document.getElementById('sidebar-toggle');
     if (!toggle) return;
@@ -1332,7 +1624,6 @@ function toggleSidebar(open) {
     document.body.style.overflow = open && window.innerWidth <= 820 ? 'hidden' : '';
 }
 
-// ── DATA SYNC ─────────────────────────────────────────────────────────────
 async function syncData() {
     try {
         setOnlineStatus('connecting');
@@ -1388,7 +1679,6 @@ function computeFines() {
         });
 }
 
-// ── RENDER ALL ────────────────────────────────────────────────────────────
 function renderAll() {
     renderMetrics();
     renderRecentTransactions();
@@ -1401,7 +1691,6 @@ function renderAll() {
     updateFinesSummary();
 }
 
-// ── METRICS ───────────────────────────────────────────────────────────────
 function renderMetrics() {
     const totalQty  = state.books.reduce((s, b) => s + parseInt(b.qty || 0), 0);
     const overdue   = state.borrowed.filter(b => b.status === 'Overdue').length;
@@ -1413,7 +1702,6 @@ function renderMetrics() {
     setText('total-fines-count',   `KES ${totalFine.toLocaleString()}`);
 }
 
-// ── RECENT TRANSACTIONS ───────────────────────────────────────────────────
 function renderRecentTransactions() {
     const tbody = document.getElementById('recent-transactions-tbody');
     if (!tbody) return;
@@ -1441,7 +1729,6 @@ function renderRecentTransactions() {
     }).join('');
 }
 
-// ── BOOKS TABLE ───────────────────────────────────────────────────────────
 function renderBooksTable(books) {
     const tbody = document.getElementById('books-table-tbody');
     if (!tbody) return;
@@ -1480,7 +1767,6 @@ function updateCatalogStats() {
     if (el) el.textContent = `${state.books.length} titles · ${state.books.reduce((s,b) => s + parseInt(b.qty||0), 0).toLocaleString()} volumes`;
 }
 
-// ── REGISTRY TABLE ────────────────────────────────────────────────────────
 function renderRegistryTable(items) {
     const tbody = document.getElementById('registry-table-tbody');
     if (!tbody) return;
@@ -1517,7 +1803,6 @@ function renderRegistryTable(items) {
     }).join('');
 }
 
-// ── FINES TABLE ───────────────────────────────────────────────────────────
 function renderFinesTable(fines) {
     const tbody = document.getElementById('fines-table-tbody');
     if (!tbody) return;
@@ -1566,7 +1851,6 @@ function updateFinesSummary() {
     el.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> KES ${total.toLocaleString()} outstanding across ${state.fines.length} record${state.fines.length !== 1 ? 's' : ''}`;
 }
 
-// ── POPULAR BOOKS ─────────────────────────────────────────────────────────
 function renderPopularBooks() {
     const list = document.getElementById('popular-books-list');
     if (!list) return;
@@ -1593,7 +1877,6 @@ function renderPopularBooks() {
     `).join('');
 }
 
-// ── CHART ─────────────────────────────────────────────────────────────────
 function renderChart() {
     const canvas  = document.getElementById('borrowingTrendsChart');
     const emptyEl = document.getElementById('chart-empty');
@@ -1668,13 +1951,11 @@ function renderChart() {
     });
 }
 
-// ── DATALIST ──────────────────────────────────────────────────────────────
 function populateDatalist() {
     const dl = document.getElementById('inventory-datalist');
     if (dl) dl.innerHTML = state.books.map(b => `<option value="${esc(b.title)}">`).join('');
 }
 
-// ── FORM HANDLERS ─────────────────────────────────────────────────────────
 function initForms() {
     const addBook    = document.getElementById('add-book-form');
     const issueBook  = document.getElementById('issue-book-form');
@@ -1835,7 +2116,6 @@ async function handleClearFine(admNo) {
     showToast(`Fine cleared for ${admNo}.`, 'success');
 }
 
-// ── LOAN PREVIEW LIVE LOOKUP ──────────────────────────────────────────────
 function initReturnLoanPreview() {
     const input = document.getElementById('return-search-id');
     if (!input) return;
@@ -1866,7 +2146,6 @@ function initReturnLoanPreview() {
     });
 }
 
-// ── SEARCH & FILTERS ──────────────────────────────────────────────────────
 function initSearch() {
     const bookSearch = document.getElementById('book-search');
     const regSearch  = document.getElementById('registry-search');
@@ -1903,13 +2182,12 @@ function initRegistryFilters() {
     });
 }
 
-// ── BACKUP / EXPORT UTILITIES ─────────────────────────────────────────────
 function initUtilityButtons() {
-    const expBtn = document.getElementById('export-db-btn');
-    const impBtn = document.getElementById('import-db-btn');
+    const printBtn = document.getElementById('export-db-btn');
+    const impBtn   = document.getElementById('import-db-btn');
 
-    if (expBtn) expBtn.addEventListener('click', exportExcelReport);
-    if (impBtn) impBtn.addEventListener('click', () => {
+    if (printBtn) printBtn.addEventListener('click', () => printReport('all'));
+    if (impBtn)   impBtn.addEventListener('click', () => {
         const fi = document.createElement('input');
         fi.type = 'file'; fi.accept = '.json';
         fi.onchange = importBackup;
@@ -1938,7 +2216,9 @@ function importBackup(e) {
 }
 
 /* =========================================================
-   EXCEL EXPORT ENGINE — Titled sheets with headers + rows
+   PRINT REPORT ENGINE
+   Opens a new window with a fully-styled printable report.
+   mode: 'all' | 'books' | 'registry' | 'fines'
    ========================================================= */
 
 function stampNow() {
@@ -1948,179 +2228,346 @@ function stampNow() {
     });
 }
 
-function stampFile() {
-    return new Date().toISOString().slice(0, 10);
+function esc(str) {
+    if (str === null || str === undefined) return '';
+    return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
 }
 
-function buildTitledSheet(config) {
-    const { title, subtitle, headers, rows, colWidths } = config;
+function buildLetterhead() {
+    return `
+        <div class="report-letterhead">
+            <div class="crest">&#128218;</div>
+            <div class="title-block">
+                <h1>${esc(SCHOOL_NAME)}</h1>
+                <div class="sub">Library Management System</div>
+                <div class="motto">"${esc(SCHOOL_MOTTO)}"</div>
+            </div>
+        </div>
+    `;
+}
 
-    const aoa = [
-        [title],
-        [subtitle],
-        [],
-        headers,
-        ...rows
-    ];
+function buildSummarySection() {
+    const totalQty  = state.books.reduce((s, b) => s + parseInt(b.qty || 0), 0);
+    const overdue   = state.borrowed.filter(b => b.status === 'Overdue').length;
+    const totalFine = state.fines.reduce((s, f) => s + parseFloat(f.fineAmount || 0), 0);
 
-    const ws = XLSX.utils.aoa_to_sheet(aoa);
+    return `
+        <div class="section">
+            <div class="summary-grid">
+                <div class="summary-card maroon">
+                    <div class="label">Total Volumes</div>
+                    <div class="value">${totalQty.toLocaleString()}</div>
+                    <div class="sub">Books in inventory</div>
+                </div>
+                <div class="summary-card blue">
+                    <div class="label">Currently Issued</div>
+                    <div class="value">${state.borrowed.length.toLocaleString()}</div>
+                    <div class="sub">Active borrowings</div>
+                </div>
+                <div class="summary-card amber">
+                    <div class="label">Overdue Returns</div>
+                    <div class="value">${overdue.toLocaleString()}</div>
+                    <div class="sub">Require follow-up</div>
+                </div>
+                <div class="summary-card red">
+                    <div class="label">Outstanding Fines</div>
+                    <div class="value">KES ${totalFine.toLocaleString()}</div>
+                    <div class="sub">Pending collection</div>
+                </div>
+            </div>
+        </div>
+    `;
+}
 
-    if (colWidths) {
-        ws['!cols'] = colWidths.map(w => ({ wch: w }));
+function buildBooksSection() {
+    if (state.books.length === 0) {
+        return `
+            <div class="section">
+                <div class="section-header">
+                    <h2>Book Catalog</h2>
+                    <span class="count">0 Titles</span>
+                </div>
+                <div class="empty-state">No books in the catalog.</div>
+            </div>
+        `;
     }
 
-    const lastCol = headers.length - 1;
-    ws['!merges'] = [
-        { s: { r: 0, c: 0 }, e: { r: 0, c: lastCol } },
-        { s: { r: 1, c: 0 }, e: { r: 1, c: lastCol } }
-    ];
+    const rows = state.books.map((b, i) => `
+        <tr>
+            <td class="cell-num">${i + 1}</td>
+            <td class="cell-code">${esc(b.isbn)}</td>
+            <td><strong>${esc(b.title)}</strong></td>
+            <td>${esc(b.author)}</td>
+            <td>${esc(b.category)}</td>
+            <td class="cell-num">${parseInt(b.qty || 0)}</td>
+        </tr>
+    `).join('');
 
-    ws['!freeze'] = { xSplit: 0, ySplit: 4 };
-
-    return ws;
+    return `
+        <div class="section">
+            <div class="section-header">
+                <h2>Book Catalog</h2>
+                <span class="count">${state.books.length} Title${state.books.length !== 1 ? 's' : ''}</span>
+            </div>
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th style="width:44px;">S/No</th>
+                        <th style="width:130px;">ISBN / Acc No</th>
+                        <th>Title</th>
+                        <th style="width:180px;">Author</th>
+                        <th style="width:160px;">Category</th>
+                        <th style="width:80px; text-align:right;">Qty</th>
+                    </tr>
+                </thead>
+                <tbody>${rows}</tbody>
+            </table>
+        </div>
+    `;
 }
 
-function buildBooksSheet() {
-    const headers = ['S/No', 'ISBN', 'Title', 'Author', 'Category', 'Qty Available'];
-    const rows = (state.books || []).map((b, i) => [
-        i + 1,
-        b.isbn || '',
-        b.title || '',
-        b.author || '',
-        b.category || '',
-        parseInt(b.qty || 0)
-    ]);
+function buildRegistrySection() {
+    if (state.borrowed.length === 0) {
+        return `
+            <div class="section">
+                <div class="section-header">
+                    <h2>Borrowing Registry</h2>
+                    <span class="count">0 Loans</span>
+                </div>
+                <div class="empty-state">No borrowing records at this time.</div>
+            </div>
+        `;
+    }
 
-    return buildTitledSheet({
-        title:     `${SCHOOL_NAME} LIBRARY — BOOK CATALOG`,
-        subtitle:  `Generated: ${stampNow()}   |   Total Titles: ${rows.length}   |   ${SCHOOL_MOTTO}`,
-        headers,
-        rows,
-        colWidths: [6, 16, 40, 24, 22, 14]
-    });
+    const rows = state.borrowed.map((t, i) => {
+        const isOverdue = t.status === 'Overdue';
+        const typeCls   = t.borrowerType === 'Teacher/Staff' ? 'teacher' : 'student';
+        const statusCls = isOverdue ? 'overdue' : 'active';
+        return `
+            <tr>
+                <td class="cell-num">${i + 1}</td>
+                <td class="cell-code">${esc(t.admNo)}</td>
+                <td><strong>${esc(t.name)}</strong></td>
+                <td><span class="badge-print ${typeCls}">${esc(t.borrowerType || 'Student')}</span></td>
+                <td>${esc(t.form || '—')}</td>
+                <td>${esc(t.bookTitle)}</td>
+                <td>${esc(t.issueDate || '—')}</td>
+                <td>${esc(t.dueDate || '—')}</td>
+                <td><span class="badge-print ${statusCls}">${esc(t.status)}</span></td>
+            </tr>
+        `;
+    }).join('');
+
+    return `
+        <div class="section">
+            <div class="section-header">
+                <h2>Borrowing Registry</h2>
+                <span class="count">${state.borrowed.length} Loan${state.borrowed.length !== 1 ? 's' : ''}</span>
+            </div>
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th style="width:44px;">S/No</th>
+                        <th style="width:80px;">Adm No</th>
+                        <th style="width:150px;">Name</th>
+                        <th style="width:90px;">Type</th>
+                        <th style="width:120px;">Class / Dept</th>
+                        <th>Book Title</th>
+                        <th style="width:80px;">Issue Date</th>
+                        <th style="width:80px;">Due Date</th>
+                        <th style="width:70px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>${rows}</tbody>
+            </table>
+        </div>
+    `;
 }
 
-function buildRegistrySheet() {
-    const headers = [
-        'S/No', 'Adm No', 'Borrower', 'Type', 'Class / Dept',
-        'Book Title', 'Issue Date', 'Due Date', 'Status', 'Fine (KES)'
-    ];
+function buildFinesSection() {
+    if (state.fines.length === 0) {
+        return `
+            <div class="section">
+                <div class="section-header">
+                    <h2>Outstanding Fines</h2>
+                    <span class="count">All Clear</span>
+                </div>
+                <div class="empty-state">No outstanding fines on record.</div>
+            </div>
+        `;
+    }
 
-    const rows = (state.borrowed || []).map((t, i) => [
-        i + 1,
-        t.admNo || '',
-        t.name || '',
-        t.borrowerType || 'Student',
-        t.form || '',
-        t.bookTitle || '',
-        t.issueDate || '',
-        t.dueDate || '',
-        t.status || '',
-        parseFloat(t.fineAmount || 0)
-    ]);
+    const totalFine = state.fines.reduce((s, f) => s + parseFloat(f.fineAmount || 0), 0);
 
-    return buildTitledSheet({
-        title:     `${SCHOOL_NAME} LIBRARY — BORROWING REGISTRY`,
-        subtitle:  `Generated: ${stampNow()}   |   Total Loans: ${rows.length}   |   ${SCHOOL_MOTTO}`,
-        headers,
-        rows,
-        colWidths: [6, 12, 24, 12, 18, 38, 12, 12, 10, 12]
-    });
+    const rows = state.fines.map((f, i) => {
+        const goodCond = f.conditionDeficit === 'Good';
+        return `
+            <tr>
+                <td class="cell-num">${i + 1}</td>
+                <td class="cell-code">${esc(f.admNo)}</td>
+                <td><strong>${esc(f.name)}</strong></td>
+                <td>${esc(f.bookTitle)}</td>
+                <td class="cell-num">${f.daysOverdue}</td>
+                <td><span class="badge-print ${goodCond ? 'good' : 'bad'}">${esc(f.conditionDeficit)}</span></td>
+                <td class="cell-money">KES ${parseFloat(f.fineAmount).toLocaleString()}</td>
+            </tr>
+        `;
+    }).join('');
+
+    return `
+        <div class="section">
+            <div class="section-header">
+                <h2>Outstanding Fines</h2>
+                <span class="count">${state.fines.length} Record${state.fines.length !== 1 ? 's' : ''} · Total: KES ${totalFine.toLocaleString()}</span>
+            </div>
+            <table class="report-table">
+                <thead>
+                    <tr>
+                        <th style="width:44px;">S/No</th>
+                        <th style="width:80px;">Adm No</th>
+                        <th style="width:170px;">Name</th>
+                        <th>Book Title</th>
+                        <th style="width:90px; text-align:right;">Days Overdue</th>
+                        <th style="width:90px;">Condition</th>
+                        <th style="width:110px; text-align:right;">Fine (KES)</th>
+                    </tr>
+                </thead>
+                <tbody>${rows}</tbody>
+            </table>
+        </div>
+    `;
 }
 
-function buildFinesSheet() {
-    const headers = ['S/No', 'Adm No', 'Name', 'Book Title', 'Days Overdue', 'Condition', 'Fine (KES)'];
-    const rows = (state.fines || []).map((f, i) => [
-        i + 1,
-        f.admNo || '',
-        f.name || '',
-        f.bookTitle || '',
-        f.daysOverdue || 0,
-        f.conditionDeficit || 'Good',
-        parseFloat(f.fineAmount || 0)
-    ]);
-
-    return buildTitledSheet({
-        title:     `${SCHOOL_NAME} LIBRARY — OUTSTANDING FINES`,
-        subtitle:  `Generated: ${stampNow()}   |   Total Records: ${rows.length}   |   ${SCHOOL_MOTTO}`,
-        headers,
-        rows,
-        colWidths: [6, 12, 24, 38, 14, 14, 12]
-    });
+function buildFooter() {
+    return `
+        <div class="report-footer">
+            <div>
+                <div><strong>Report generated:</strong> ${stampNow()}</div>
+                <div><strong>System:</strong> Kivaywa LMS v2.3</div>
+            </div>
+            <div class="signature">
+                <div class="sig-line">Librarian Signature</div>
+                <div class="sig-line">Date</div>
+            </div>
+        </div>
+    `;
 }
 
-function buildSummarySheet() {
-    const totalQty  = (state.books || []).reduce((s, b) => s + parseInt(b.qty || 0), 0);
-    const overdue   = (state.borrowed || []).filter(b => b.status === 'Overdue').length;
-    const totalFine = (state.fines || []).reduce((s, f) => s + parseFloat(f.fineAmount || 0), 0);
+function buildReportHTML(mode) {
+    const modeTitles = {
+        all:      'Full Library Report',
+        books:    'Book Catalog',
+        registry: 'Borrowing Registry',
+        fines:    'Fines & Penalties'
+    };
 
-    const headers = ['Metric', 'Value'];
-    const rows = [
-        ['Total Titles',            (state.books || []).length],
-        ['Total Volumes',           totalQty],
-        ['Active Loans',            (state.borrowed || []).length],
-        ['Overdue Loans',           overdue],
-        ['Outstanding Fines (KES)', totalFine],
-        [],
-        ['Report Generated By',     'Kivaywa LMS'],
-        ['Date',                    stampNow()]
-    ];
+    let sections = '';
+    if (mode === 'all') {
+        sections = buildSummarySection() + buildBooksSection() + buildRegistrySection() + buildFinesSection();
+    } else if (mode === 'books') {
+        sections = buildBooksSection();
+    } else if (mode === 'registry') {
+        sections = buildRegistrySection();
+    } else if (mode === 'fines') {
+        sections = buildFinesSection();
+    }
 
-    return buildTitledSheet({
-        title:     `${SCHOOL_NAME} LIBRARY — SUMMARY REPORT`,
-        subtitle:  `Generated: ${stampNow()}   |   ${SCHOOL_MOTTO}`,
-        headers,
-        rows,
-        colWidths: [32, 32]
-    });
+    return `
+        <div class="print-actions">
+            <div class="left">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>${esc(modeTitles[mode] || 'Report')} — Kivaywa LMS</span>
+            </div>
+            <div style="display:flex;gap:10px;">
+                <button class="btn-close-print" onclick="window.close()">
+                    <i class="fa-solid fa-xmark"></i> Close
+                </button>
+                <button class="btn-do-print" onclick="window.print()">
+                    <i class="fa-solid fa-print"></i> Print
+                </button>
+            </div>
+        </div>
+        <div class="print-doc">
+            ${buildLetterhead()}
+            <div class="report-title">${esc(modeTitles[mode] || 'Report')}</div>
+            <div class="report-meta">Generated on <strong>${stampNow()}</strong> · Kivaywa High School Library</div>
+            ${sections}
+            ${buildFooter()}
+        </div>
+    `;
 }
 
-function exportExcelReport() {
-    if (typeof XLSX === 'undefined') {
-        showToast('Excel library not loaded. Check internet connection.', 'error');
+function printReport(mode = 'all') {
+    const win = window.open('', '_blank');
+    if (!win) {
+        showToast('Pop-up blocked. Please allow pop-ups to print.', 'error');
         return;
     }
-    try {
-        const wb = XLSX.utils.book_new();
-        XLSX.utils.book_append_sheet(wb, buildSummarySheet(),  'Summary');
-        XLSX.utils.book_append_sheet(wb, buildBooksSheet(),    'Book Catalog');
-        XLSX.utils.book_append_sheet(wb, buildRegistrySheet(), 'Borrowing Registry');
-        XLSX.utils.book_append_sheet(wb, buildFinesSheet(),    'Fines');
 
-        const filename = `Kivaywa_LMS_Report_${stampFile()}.xlsx`;
-        XLSX.writeFile(wb, filename);
-        showToast(`Excel report downloaded: ${filename}`, 'success');
-    } catch (err) {
-        console.error('Excel export error:', err);
-        showToast('Excel export failed. See console for details.', 'error');
-    }
+    const fontsLink = `
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    `;
+
+    // Reuse the print-doc CSS from the main page
+    const printStyles = Array.from(document.styleSheets)
+        .filter(s => !s.href || s.href.includes('fonts.googleapis') || s.href.includes('font-awesome'))
+        .map(s => {
+            try {
+                return Array.from(s.cssRules).map(r => r.cssText).join('\n');
+            } catch (e) { return ''; }
+        }).join('\n');
+
+    win.document.open();
+    win.document.write(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>${esc(SCHOOL_NAME)} — Library Report</title>
+            ${fontsLink}
+            <style>
+                body {
+                    margin: 0;
+                    padding: 0;
+                    background: #f4f0eb;
+                    font-family: 'Inter', -apple-system, sans-serif;
+                    -webkit-font-smoothing: antialiased;
+                }
+                .print-doc {
+                    background: #fff;
+                    max-width: 820px;
+                    margin: 24px auto;
+                    padding: 32px 40px;
+                    border-radius: 8px;
+                    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+                }
+                ${printStyles}
+                @media print {
+                    body { background: #fff; }
+                    .print-doc {
+                        max-width: none;
+                        margin: 0;
+                        padding: 0;
+                        border-radius: 0;
+                        box-shadow: none;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            ${buildReportHTML(mode)}
+        </body>
+        </html>
+    `);
+    win.document.close();
+
+    showToast(`Print preview opened: ${mode === 'all' ? 'Full report' : mode}`, 'success');
 }
 
-function exportBooksOnly() {
-    if (typeof XLSX === 'undefined') { showToast('Excel library not loaded.', 'error'); return; }
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, buildBooksSheet(), 'Book Catalog');
-    XLSX.writeFile(wb, `Kivaywa_Catalog_${stampFile()}.xlsx`);
-    showToast('Catalog exported to Excel.', 'success');
-}
-
-function exportRegistryOnly() {
-    if (typeof XLSX === 'undefined') { showToast('Excel library not loaded.', 'error'); return; }
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, buildRegistrySheet(), 'Borrowing Registry');
-    XLSX.writeFile(wb, `Kivaywa_Registry_${stampFile()}.xlsx`);
-    showToast('Registry exported to Excel.', 'success');
-}
-
-function exportFinesOnly() {
-    if (typeof XLSX === 'undefined') { showToast('Excel library not loaded.', 'error'); return; }
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, buildFinesSheet(), 'Fines');
-    XLSX.writeFile(wb, `Kivaywa_Fines_${stampFile()}.xlsx`);
-    showToast('Fines exported to Excel.', 'success');
-}
-
-// ── SYNC ERROR STATE ──────────────────────────────────────────────────────
 function renderSyncError() {
     const errRow = `<tr><td colspan="7" style="text-align:center; color:var(--clr-danger); padding:28px; font-size:13px;">
         <i class="fa-solid fa-triangle-exclamation"></i> Could not load data from server. Check connection and try refreshing.
@@ -2131,7 +2578,6 @@ function renderSyncError() {
     });
 }
 
-// ── MODALS ────────────────────────────────────────────────────────────────
 function openModal(id) {
     const m = document.getElementById(id);
     if (m) { m.classList.add('open'); document.body.style.overflow = 'hidden'; }
@@ -2158,7 +2604,6 @@ document.addEventListener('keydown', e => {
     }
 });
 
-// ── TOASTS ────────────────────────────────────────────────────────────────
 function showToast(message, type = 'success', duration = 4500) {
     const stack = document.getElementById('toast-stack');
     if (!stack) return;
@@ -2180,7 +2625,6 @@ function showToast(message, type = 'success', duration = 4500) {
     }, duration);
 }
 
-// ── HELPERS ───────────────────────────────────────────────────────────────
 function setText(id, val) {
     const el = document.getElementById(id);
     if (el) el.textContent = val;
@@ -2190,14 +2634,8 @@ function emptyRow(cols, msg) {
     return `<tr><td colspan="${cols}" class="table-loading" style="color:var(--clr-text-muted);">${msg}</td></tr>`;
 }
 
-function esc(str) {
-    if (str === null || str === undefined) return '';
-    return String(str).replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
-}
-
 /* =========================================================
-   BARCODE SCANNER MODULE — phone-as-OBR
-   Uses ZXing for cross-browser support (iOS + Android)
+   BARCODE SCANNER MODULE
    ========================================================= */
 
 let codeReader = null;
@@ -2305,7 +2743,6 @@ function onDecoded(value) {
     }, 450);
 }
 
-/* Post-scan hooks: OBR behavior per field */
 function runPostScanHook(fieldId, value) {
     switch (fieldId) {
 
@@ -2411,7 +2848,6 @@ async function toggleTorch() {
     }
 }
 
-// ── GLOBAL REGISTRATION ────────────────────────────────────────────────────
 window.switchTab                   = switchTab;
 window.openModal                   = openModal;
 window.closeModal                  = closeModal;
@@ -2423,10 +2859,7 @@ window.stopScan                    = stopScan;
 window.toggleTorch                 = toggleTorch;
 window.showToast                   = showToast;
 window.toggleSidebar               = toggleSidebar;
-window.exportExcelReport           = exportExcelReport;
-window.exportBooksOnly             = exportBooksOnly;
-window.exportRegistryOnly          = exportRegistryOnly;
-window.exportFinesOnly             = exportFinesOnly;
+window.printReport                 = printReport;
 </script>
 </body>
 </html>
